@@ -13,13 +13,18 @@ class ProdutosController extends Controller
     }
 
     public function store(Request $request){
+        if($request->nome == '' || $request->valor == '' || $request->estoque == ''){
+            echo "<script>alert('Campo em branco')</script>";
+            echo "<script>document.location = '/produtos/novo'</script>";
+        }
         Produto::create([
             'nome' => $request->nome,
             'valor' => $request->valor,
             'estoque' => $request->estoque,
         ]);
-
-        return "Produto criado com sucesso!";
+        
+        echo "<script>alert('Produto \"$request->nome\" cadastrado!')</script>";
+        echo "<script>document.location = '/produtos/table'</script>";
     }
 
     public function show(){
@@ -34,6 +39,10 @@ class ProdutosController extends Controller
     }
 
     public function update(Request $request, $id){
+        if($request->nome == '' || $request->valor == '' || $request->estoque == ''){
+            echo "<script>alert('Campo em branco')</script>";
+            echo "<script>document.location = '/produtos/editar'</script>";
+        }
         $produto = Produto::findOrFail($id);
         
         $produto->update([
@@ -43,7 +52,7 @@ class ProdutosController extends Controller
         ]);
 
        
-        echo "<script>alert('Produto sem Nome!')</script>";
+        echo "<script>alert('Produto alterado!')</script>";
         echo "<script>document.location = '/produtos/table'</script>";
     }
 
@@ -51,12 +60,13 @@ class ProdutosController extends Controller
         $produto = Produto::findOrFail($id);
 
         return view('produto.delete', ['produto' => $produto]);
-    }
+            }
 
     public function destroy($id){
         $produto = Produto::findOrFail($id);
         $produto->delete();
-
-       echo "";
+        
+       echo "<script>alert('Produto excluído!')</script>";
+       echo "<script>document.location = '/produtos/table'</script>";
     }
 }

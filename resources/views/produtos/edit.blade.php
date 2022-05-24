@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ url(mix('site/bootstrap.css')) }}">
 </head>
 <body>
-    <nav class="navbar-resposive absolute rounded-full navbar-expand-lg navbar-dark" style="background-color: #4ec915; color:aliceblue">
+    <nav class="navbar-resposive absolute rounded-full navbar-expand-lg navbar-dark" style="background-color: #585e56; color:aliceblue">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Produto</a>
           <br>
@@ -17,32 +17,32 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link" href="">inicio</a>
-              <a class="nav-link" href="">Listar</a>
-              <a class="nav-link" href="#">Editar</a>
-              <a class="nav-link" href="">Excluir</a>
+              <a class="nav-link" href="/porudtos/novo">Inicio</a>
+              <a class="nav-link" href="/produtos/table">Listar</a>
             </div>
           </div>
         </div>
       </nav>
-        <div class="container-fluid" id="form">
-        <div class="col-md-6">
+        <div class="container col-md-3" id="form">
+        
+          <div class="card " style="background-color: darkgray; align-items: center; border-radius: 15px;">
             <form action="{{route('alterar_produto', ['id'=> $produto->id])}}" method="post">
                 @csrf
                 
-                <label for="lblNome">Nome:</label>
+                <label class="row sm-3" for="lblNome">Nome:</label>
                 <input type="text" name="nome" value="{{ $produto->nome }}">
                 <br><br>
-                <label for="lblNome">Valor:</label>
+                <label class="row sm-3" for="lblNome">Valor:</label>
                 <input type="text" name="valor" value="{{ $produto->valor }}">
                 <br><br>
-                <label for="lblNome">Quantidade:</label>
+                <label class="row sm-3" for="lblNome">Quantidade:</label>
                 <input type="text" name="estoque" value="{{ $produto->estoque }}">
                 <br><br>
-                <button class="btn btn-success">Salvar</button>
-                
-        </div>
-        </div>
+                <button class="btn btn-success" style="text-align: right">Cadastrar</button>
+          </div>
+        </form>
+      </div>
+       
 
     
     <script src="{{ url(mix('site/jquery.js')) }}"></script>
