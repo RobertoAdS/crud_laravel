@@ -22,10 +22,10 @@ class ProdutosController extends Controller
         return "Produto criado com sucesso!";
     }
 
-    public function show($id){
-        $produto = Produto::findOrFail($id);
+    public function show(){
+        $produto = Produto::get();
         
-        return view('produtos.show', ['produto' => $produto]);
+        return view('produtos.table', ['produto' => $produto]);
     }
 
     public function edit($id){
@@ -42,7 +42,9 @@ class ProdutosController extends Controller
             'estoque' => $request->estoque,
         ]);
 
-        return "Produto Atualizado com Sucesso!";
+       
+        echo "<script>alert('Produto sem Nome!')</script>";
+        echo "<script>document.location = '/produtos/table'</script>";
     }
 
     public function delete($id){
@@ -55,6 +57,6 @@ class ProdutosController extends Controller
         $produto = Produto::findOrFail($id);
         $produto->delete();
 
-        return "Produto Excluído com Sucesso";
+       echo "";
     }
 }

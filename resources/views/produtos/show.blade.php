@@ -17,9 +17,9 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link" href="{{url('/produtos/novo')}}">inicio</a>
+              <a class="nav-link" href="/produtos/novo">inicio</a>
               <a class="nav-link" href="">Listar</a>
-              <a class="nav-link" href="{{route('alterar_produto')}}">Editar</a>
+              <a class="nav-link" href="">Editar</a>
               <a class="nav-link" href="">Excluir</a>
             </div>
           </div>
@@ -28,7 +28,7 @@
       <div class="container-fluid" id="form">
         <div class="col-md-6">
     
-            <form action="" method="POST">
+            <form action="" method="GET">
                 
                 <label for="lblNome">Nome:</label>
                 <input type="text" name="nome" value="{{ $produto->nome }}">

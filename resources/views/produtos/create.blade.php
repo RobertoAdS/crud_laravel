@@ -18,7 +18,7 @@
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-link" href="#">Inicio</a>
-              <a class="nav-link" href="{{url('produtos/ver/1?')}}">Listar</a>
+              <a class="nav-link" href="/produtos/table">Listar</a>
               <a class="nav-link" href="{{url('produtos/editar/1?')}}">Editar</a>
               <a class="nav-link" href="">Excluir</a>
             </div>
